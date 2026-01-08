@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+  <link rel="stylesheet" href="style2.css">
+  <style>
+/* Vertical Left Navbar */
+/* Vertical Left Navbar - Transparent */
+nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100px;
+  background-color: rgba(51, 51, 51, 0.5); /* Semi-transparent dark */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  z-index: 800;
+  backdrop-filter: blur(5px); /* Optional: blur content behind */
+}
+
+nav .logo {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: white;
+}
+
+nav .nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+nav .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  width: 100%;
+  padding: 10px 0;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav .nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffd700;
+}
+
+/* Hide hamburger since vertical navbar doesn't need it */
+.hamburger {
+  display: none;
+}
+
+/* Push container content to the right of navbar */
+.container {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+</style>
+
+</head>
+<body>
+
+  <!-- NavBar -->
+  <nav>
+    <div class="logo">MySite</div>
+    
+    <div class="nav-links" id="navLinks">
+      <a href="login.html">Login</a>
+      <a href="signup.html">Signup</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </div>
+
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <button class="toggle-btn" onclick="toggleMode()">🌙</button>
+
+    <h2 class="fade-in">Welcome 🎉</h2>
+    <p class="fade-in delay-1">
+      Account logged in successfully!<br>
+      Enjoy the mini game below!
+    </p>
+
+    <!-- Mini Game -->
+    <div class="game">
+      <p>Time: <span id="time">30</span>s | Score: <span id="score">0</span></p>
+      <div id="target"></div>
+    </div>
+
+    <div class="game-buttons">
+      <button id="restartBtn" onclick="startGame()">Restart Game</button>
+    </div>
+
+    <!-- Logout Button -->
+    <button class="logout-btn bounce" onclick="logout()">Logout</button>
+  </div>
+
+  <script src="script2.js"></script>
+  <script>
+    // Toggle mobile menu
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Feedback</h2>
+
+    <label for="fbName">Name</label>
+    <input type="text" id="fbName" placeholder="Enter your name">
+
+    <label for="fbEmail">Email</label>
+    <input type="email" id="fbEmail" placeholder="Enter your email">
+
+    <label for="fbMessage">Your Feedback</label>
+    <textarea id="fbMessage" rows="4" placeholder="Write your feedback here..."></textarea>
+
+    <button class="btn" onclick="submitFeedback()">Submit Feedback</button>
+  </div>
+
+  <script>
+    function submitFeedback() {
+      const name = document.getElementById("fbName").value.trim();
+      const email = document.getElementById("fbEmail").value.trim();
+      const message = document.getElementById("fbMessage").value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      alert("Thank you for your feedback!");
+      
+      // Optional: clear the form
+      document.getElementById("fbName").value = "";
+      document.getElementById("fbEmail").value = "";
+      document.getElementById("fbMessage").value = "";
+
+      // Redirect back to login.html
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>

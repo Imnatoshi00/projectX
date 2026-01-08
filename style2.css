@@ -1,0 +1,114 @@
+/* PAGE BACKGROUND */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ecf3c2, #fad0c4);
+  color: #333;
+}
+
+/* FORM / CONTAINER BOX */
+.container {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+/* DARK MODE FOR FORM BOX */
+.container.dark-mode {
+  background: #2c2c2c;
+  color: #f0f0f0;
+}
+
+/* HEADINGS */
+h2 {
+  color: #1e90ff;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* PARAGRAPH ANIMATION */
+p {
+  margin-top: 10px;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* FADE-IN ANIMATION */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* TOGGLE BUTTON */
+.toggle-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* LOGOUT BUTTON WITH BOUNCE */
+.logout-btn {
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  background-color: #1e90ff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,20%,50%,80%,100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* MINI GAME STYLES */
+.game {
+  margin-top: 20px;
+  border: 2px dashed #1e90ff;
+  height: 200px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#target {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(53, 94, 94);
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* RESTART BUTTON */
+#restartBtn {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  background-color: #32cd32;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#restartBtn:hover {
+  opacity: 0.9;
+}
