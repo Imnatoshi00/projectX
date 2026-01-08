@@ -9,7 +9,7 @@ function toggleMode() {
 
 // LOGOUT
 function logout() {
-  window.location.href = "login.html";
+  window.location.href = "index.html";
 }
 
 /* MINI GAME */
