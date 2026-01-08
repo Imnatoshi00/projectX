@@ -1,0 +1,147 @@
+/* Body background stays whatever you want */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* YOUR PAGE BACKGROUND COLOR HERE */
+  background-color: #ecf3c2; /* light purple example */
+
+  /* OR a gradient */
+  /* background: linear-gradient(135deg, #1e90ff, #00c6ff); */
+
+  color: #333;
+}
+
+/* Form / container box */
+.container {
+  background: #ffffff; /* light mode default */
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+  transition: all 0.3s ease; /* smooth dark/light transition */
+}
+
+/* Dark mode for the entire form box */
+.container.dark-mode {
+  background: #2c2c2c; /* dark form box */
+  color: #f0f0f0;      /* text color for dark mode */
+}
+
+/* Headings inside the container */
+h2 {
+  color: #798536;
+}
+
+/* Input fields */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Change input color in dark mode */
+.container.dark-mode input {
+  background: #444;       /* dark input background */
+  color: #f0f0f0;         /* text color */
+  border: 1px solid #666; /* border for dark mode */
+  caret-color: white;
+}
+
+/* Buttons */
+.btn, .logout-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1e90ff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn:hover, .logout-btn:hover {
+  opacity: 0.9;
+}
+
+/* Toggle button */
+.toggle-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Error message */
+#errorMsg {
+  margin-top: 10px;
+  font-size: 13px;
+  color: red;
+}
+
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 14px;
+  color: #555;
+}
+
+body.dark label {
+  color: #bbb;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+body.dark input {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #fff;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #667eea;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #5a67d8;
+}
+
+.welcome-text {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+body.dark .welcome-text {
+  color: #ccc;
+}

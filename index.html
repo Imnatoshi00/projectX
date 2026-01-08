@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <button class="toggle-btn" onclick="toggleMode()">🌙</button>
+
+    <h2>LOGIN</h2>
+
+    <div class="input-group">
+      <label>Email</label>
+      <input type="email" required>
+    </div>
+
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" id="password" required>
+    </div>
+
+    <div class="input-group">
+      <label>Confirm Password</label>
+      <input type="password" id="confirmPassword" required>
+    </div>
+
+    <!-- Error message -->
+    <p id="errorMsg" style="color:red; font-size:13px;"></p>
+
+    <button class="btn" id="signupBtn" onclick="signUp()">Sign in</button>
+
+    <!-- New small button inside the box -->
+    <button class="small-btn" onclick="registerNewAccount()" 
+            style="margin-top:10px; font-size:12px; padding:5px 10px; background-color:#eee; border:none; cursor:pointer;">
+      Register a new account
+    </button><br>
+<button class="small-btn" onclick="window.location.href='feedback.html'" 
+        style="margin-top:10px; font-size:12px; padding:5px 10px; background-color:#eee; border:none; cursor:pointer;">
+  Give Feedback
+</button>
+  </div>
+  
+
+  <script>
+    function registerNewAccount() {
+      alert("Redirecting to registration page...");
+      // You can replace the alert with actual redirect:
+      // window.location.href = "register.html";
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
