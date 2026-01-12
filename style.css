@@ -1,147 +1,145 @@
-/* Body background stays whatever you want */
+/* 🌐 BODY */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* YOUR PAGE BACKGROUND COLOR HERE */
-  background-color: #ecf3c2; /* light purple example */
-
-  /* OR a gradient */
-  /* background: linear-gradient(135deg, #1e90ff, #00c6ff); */
-
+  background-color: #ecf3c2;
   color: #333;
-}
-
-/* Form / container box */
-.container {
-  background: #ffffff; /* light mode default */
-  padding: 30px 25px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  text-align: center;
-  transition: all 0.3s ease; /* smooth dark/light transition */
-}
-
-/* Dark mode for the entire form box */
-.container.dark-mode {
-  background: #2c2c2c; /* dark form box */
-  color: #f0f0f0;      /* text color for dark mode */
-}
-
-/* Headings inside the container */
-h2 {
-  color: #798536;
-}
-
-/* Input fields */
-input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
   transition: background 0.3s, color 0.3s;
 }
 
-/* Change input color in dark mode */
-.container.dark-mode input {
-  background: #444;       /* dark input background */
-  color: #f0f0f0;         /* text color */
-  border: 1px solid #666; /* border for dark mode */
-  caret-color: white;
+/* 🌙 DARK MODE (BODY LEVEL) */
+body.dark-mode {
+  background-color: #121212;
+  color: #eaeaea;
 }
 
-/* Buttons */
-.btn, .logout-btn {
+/* 📦 CONTAINER */
+.container {
+  position: relative;
   width: 100%;
-  padding: 10px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 6px;
-  background-color: #1e90ff;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: opacity 0.2s;
+  max-width: 380px;
+  padding: 25px;
+  margin: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
 }
 
-.btn:hover, .logout-btn:hover {
-  opacity: 0.9;
+body.dark-mode .container {
+  background: #2c2c2c;
+  color: #f0f0f0;
 }
 
-/* Toggle button */
-.toggle-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
+/* 🏷️ HEADINGS */
+h2 {
+  margin-bottom: 20px;
+  color: #798536;
 }
 
-/* Error message */
-#errorMsg {
-  margin-top: 10px;
-  font-size: 13px;
-  color: red;
+body.dark-mode h2 {
+  color: #cbdc8c;
 }
 
-
+/* 🧾 INPUT GROUP */
 .input-group {
   margin-bottom: 15px;
 }
 
+/* 🏷️ LABELS */
 label {
+  display: block;
+  text-align: left;
   font-size: 14px;
   color: #555;
+  margin-bottom: 5px;
 }
 
-body.dark label {
+body.dark-mode label {
   color: #bbb;
 }
 
+/* ✏️ INPUTS */
 input {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  font-size: 16px; /* prevents mobile zoom */
+  box-sizing: border-box;
+  transition: background 0.3s, color 0.3s, border 0.3s;
 }
 
-body.dark input {
-  background: #2a2a2a;
-  border-color: #444;
+body.dark-mode input {
+  background: #444;
   color: #fff;
+  border-color: #666;
+  caret-color: white;
 }
 
-.btn {
+/* 🔘 BUTTONS */
+.btn,
+.logout-btn {
   width: 100%;
   padding: 12px;
+  margin-top: 15px;
   border: none;
   border-radius: 6px;
   background: #667eea;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
 }
 
-.btn:hover {
-  background: #5a67d8;
+.btn:hover,
+.logout-btn:hover {
+  opacity: 0.9;
 }
 
+/* 🌙 TOGGLE BUTTON */
+.toggle-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ❌ ERROR MESSAGE */
+#errorMsg {
+  margin-top: 10px;
+  font-size: 13px;
+  color: red;
+  min-height: 16px;
+}
+
+/* 👋 WELCOME TEXT */
 .welcome-text {
   text-align: center;
   font-size: 18px;
   color: #555;
 }
 
-body.dark .welcome-text {
+body.dark-mode .welcome-text {
   color: #ccc;
+}
+
+/* 📱 MOBILE TWEAKS */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
 }

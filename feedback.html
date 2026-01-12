@@ -3,16 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>Feedback</title>
+
+  <!-- ✅ REQUIRED for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
+
   <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f4f4f4;
+      font-family: Arial, sans-serif;
+    }
+
     .container {
+      width: 100%;
       max-width: 400px;
-      margin: 50px auto;
       padding: 20px;
+      margin: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       border-radius: 10px;
+      background: #fff;
       text-align: center;
-      font-family: Arial, sans-serif;
     }
 
     h2 {
@@ -32,7 +48,7 @@
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      font-size: 14px;
+      font-size: 16px; /* prevents mobile zoom */
       box-sizing: border-box;
     }
 
@@ -42,7 +58,7 @@
 
     .btn {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       font-size: 16px;
       border: none;
       border-radius: 5px;
@@ -53,6 +69,13 @@
 
     .btn:hover {
       background-color: #45a049;
+    }
+
+    /* 📱 Small screen tweaks */
+    @media (max-width: 480px) {
+      .container {
+        padding: 15px;
+      }
     }
   </style>
 </head>
@@ -85,13 +108,11 @@
       }
 
       alert("Thank you for your feedback!");
-      
-      // Optional: clear the form
+
       document.getElementById("fbName").value = "";
       document.getElementById("fbEmail").value = "";
       document.getElementById("fbMessage").value = "";
 
-      // Redirect back to login.html
       window.location.href = "index.html";
     }
   </script>

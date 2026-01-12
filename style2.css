@@ -1,66 +1,79 @@
-/* PAGE BACKGROUND */
+/* 🌐 PAGE BACKGROUND */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #ecf3c2, #fad0c4);
   color: #333;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* FORM / CONTAINER BOX */
+/* 🌙 DARK MODE (BODY LEVEL) */
+body.dark-mode {
+  background: linear-gradient(135deg, #121212, #1f1f1f);
+  color: #f0f0f0;
+}
+
+/* 📦 FORM / CONTAINER BOX */
 .container {
+  position: relative;
   background: #ffffff;
-  padding: 30px 25px;
+  padding: 25px;
   border-radius: 12px;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px;
   text-align: center;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* DARK MODE FOR FORM BOX */
-.container.dark-mode {
+body.dark-mode .container {
   background: #2c2c2c;
   color: #f0f0f0;
 }
 
-/* HEADINGS */
+/* 🏷️ HEADINGS */
 h2 {
   color: #1e90ff;
   animation: fadeIn 1s ease forwards;
 }
 
-/* PARAGRAPH ANIMATION */
+body.dark-mode h2 {
+  color: #6aaeff;
+}
+
+/* 📄 PARAGRAPH */
 p {
   margin-top: 10px;
   animation: fadeIn 1s ease forwards;
-  animation-delay: 0.5s;
+  animation-delay: 0.3s;
 }
 
-/* FADE-IN ANIMATION */
+/* ✨ FADE-IN ANIMATION */
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* TOGGLE BUTTON */
+/* 🌙 TOGGLE BUTTON */
 .toggle-btn {
   position: absolute;
   top: 15px;
-  right: 20px;
+  right: 15px;
   background: none;
   border: none;
   font-size: 20px;
   cursor: pointer;
 }
 
-/* LOGOUT BUTTON WITH BOUNCE */
+/* 🚪 LOGOUT BUTTON */
 .logout-btn {
   margin-top: 20px;
-  padding: 10px;
+  padding: 12px;
   width: 100%;
   border: none;
   border-radius: 6px;
@@ -71,17 +84,22 @@ p {
   animation: bounce 2s infinite;
 }
 
+.logout-btn:hover {
+  opacity: 0.9;
+}
+
+/* 🔄 BOUNCE ANIMATION */
 @keyframes bounce {
   0%,20%,50%,80%,100% { transform: translateY(0); }
   40% { transform: translateY(-10px); }
   60% { transform: translateY(-5px); }
 }
 
-/* MINI GAME STYLES */
+/* 🎮 MINI GAME */
 .game {
   margin-top: 20px;
   border: 2px dashed #1e90ff;
-  height: 200px;
+  height: 220px;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
@@ -94,13 +112,17 @@ p {
   border-radius: 50%;
   position: absolute;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
-/* RESTART BUTTON */
+#target:active {
+  transform: scale(0.9);
+}
+
+/* 🔁 RESTART BUTTON */
 #restartBtn {
-  margin-top: 10px;
-  padding: 8px 15px;
+  margin-top: 12px;
+  padding: 10px 18px;
   border: none;
   border-radius: 6px;
   background-color: #32cd32;
@@ -111,4 +133,15 @@ p {
 
 #restartBtn:hover {
   opacity: 0.9;
+}
+
+/* 📱 MOBILE OPTIMIZATION */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  .game {
+    height: 200px;
+  }
 }

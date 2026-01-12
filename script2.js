@@ -1,45 +1,54 @@
-// DARK/LIGHT TOGGLE
+/* 🌙 DARK / LIGHT MODE */
 function toggleMode() {
-  const container = document.querySelector(".container");
-  container.classList.toggle("dark-mode");
+  document.body.classList.toggle("dark-mode");
 
   const btn = document.querySelector(".toggle-btn");
-  btn.textContent = container.classList.contains("dark-mode") ? "☀️" : "🌙";
+  if (!btn) return;
+
+  btn.textContent = document.body.classList.contains("dark-mode")
+    ? "☀️"
+    : "🌙";
 }
 
-// LOGOUT
+/* 🚪 LOGOUT */
 function logout() {
   window.location.href = "index.html";
 }
 
-/* MINI GAME */
+/* 🎮 MINI GAME */
 let score = 0;
 let timeLeft = 30;
 let gameInterval;
 let timerInterval;
 
+// Get elements safely
 const scoreDisplay = document.getElementById("score");
 const timeDisplay = document.getElementById("time");
 const target = document.getElementById("target");
 const gameArea = document.querySelector(".game");
 
-// START OR RESTART GAME
+/* START GAME */
 function startGame() {
+  if (!gameArea || !target || !scoreDisplay || !timeDisplay) return;
+
   clearInterval(gameInterval);
   clearInterval(timerInterval);
 
   score = 0;
   timeLeft = 30;
+
   scoreDisplay.textContent = score;
   timeDisplay.textContent = timeLeft;
 
   moveTarget();
-  gameInterval = setInterval(moveTarget, 2000); // move target every 2s
-  timerInterval = setInterval(countdown, 1000); // countdown every second
+  gameInterval = setInterval(moveTarget, 2000);
+  timerInterval = setInterval(countdown, 1000);
 }
 
-// MOVE TARGET RANDOMLY
+/* MOVE TARGET */
 function moveTarget() {
+  if (!gameArea || !target) return;
+
   const maxX = gameArea.clientWidth - target.clientWidth;
   const maxY = gameArea.clientHeight - target.clientHeight;
 
@@ -50,7 +59,7 @@ function moveTarget() {
   target.style.top = randomY + "px";
 }
 
-// COUNTDOWN TIMER
+/* TIMER */
 function countdown() {
   if (timeLeft > 0) {
     timeLeft--;
@@ -60,21 +69,27 @@ function countdown() {
   }
 }
 
-// CLICK EVENT FOR TARGET
-target.addEventListener("click", () => {
-  if (timeLeft > 0) {
-    score++;
-    scoreDisplay.textContent = score;
-    moveTarget();
-  }
-});
+/* TARGET CLICK */
+if (target) {
+  target.addEventListener("click", () => {
+    if (timeLeft > 0) {
+      score++;
+      scoreDisplay.textContent = score;
+      moveTarget();
+    }
+  });
+}
 
-// END GAME
+/* END GAME */
 function endGame() {
   clearInterval(gameInterval);
   clearInterval(timerInterval);
   alert(`Time's up! Your final score is: ${score}`);
 }
 
-// START GAME WHEN PAGE LOADS
-window.onload = startGame;
+/* START GAME ONLY IF GAME EXISTS */
+document.addEventListener("DOMContentLoaded", () => {
+  if (gameArea) {
+    startGame();
+  }
+});

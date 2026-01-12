@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Sign Up</title>
+
+  <!-- ✅ REQUIRED for mobile responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,28 +31,22 @@
       <input type="password" id="confirmPassword" required>
     </div>
 
-    <!-- Error message -->
-    <p id="errorMsg" style="color:red; font-size:13px;"></p>
+    <p id="errorMsg" class="error-msg"></p>
 
     <button class="btn" id="signupBtn" onclick="signUp()">Sign in</button>
 
-    <!-- New small button inside the box -->
-    <button class="small-btn" onclick="registerNewAccount()" 
-            style="margin-top:10px; font-size:12px; padding:5px 10px; background-color:#eee; border:none; cursor:pointer;">
+    <button class="small-btn" onclick="registerNewAccount()">
       Register a new account
-    </button><br>
-<button class="small-btn" onclick="window.location.href='feedback.html'" 
-        style="margin-top:10px; font-size:12px; padding:5px 10px; background-color:#eee; border:none; cursor:pointer;">
-  Give Feedback
-</button>
+    </button>
+
+    <button class="small-btn" onclick="window.location.href='feedback.html'">
+      Give Feedback
+    </button>
   </div>
-  
 
   <script>
     function registerNewAccount() {
       alert("Redirecting to registration page...");
-      // You can replace the alert with actual redirect:
-      // window.location.href = "register.html";
     }
   </script>
 

@@ -3,55 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <title>Sign Up</title>
+
+  <!-- ✅ REQUIRED for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
+
   <style>
-    /* Container styling */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f4f4f4;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Container */
     .container {
+      width: 100%;
       max-width: 400px;
-      margin: 50px auto;
       padding: 20px;
+      margin: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       border-radius: 10px;
       text-align: center;
-      font-family: Arial, sans-serif;
+      background: #fff;
     }
 
     h2 {
       margin-bottom: 20px;
     }
 
+    /* Toggle button */
     .toggle-btn {
-      float: right;
+      position: absolute;
+      top: 15px;
+      right: 15px;
       border: none;
       background: none;
       font-size: 18px;
       cursor: pointer;
     }
 
-    /* Labels on top */
-    .container label {
+    /* Labels */
+    label {
       display: block;
       text-align: left;
       font-weight: bold;
       margin-bottom: 5px;
     }
 
-    /* Input fields */
-    .container input {
+    /* Inputs */
+    input {
       width: 100%;
       padding: 10px;
       box-sizing: border-box;
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      font-size: 14px;
-      text-align: center; /* placeholder and input text centered */
+      font-size: 16px; /* prevents mobile zoom */
+      text-align: center;
     }
 
     /* Main button */
     .btn {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       font-size: 16px;
       background-color: #4CAF50;
       color: white;
@@ -65,17 +84,15 @@
       background-color: #45a049;
     }
 
-    /* Small button */
+    /* Small link button */
     .small-btn {
       display: inline-block;
-      margin-top: 10px;
-      font-size: 12px;
-      padding: 5px 10px;
+      margin-top: 12px;
+      font-size: 14px;
+      padding: 6px 12px;
       background-color: #eee;
       color: #000;
       text-decoration: none;
-      border: none;
-      cursor: pointer;
       border-radius: 5px;
     }
 
@@ -87,7 +104,35 @@
     #errorMsg {
       color: red;
       font-size: 13px;
+      min-height: 16px;
       margin-bottom: 10px;
+    }
+
+    /* 📱 Mobile tweaks */
+    @media (max-width: 480px) {
+      .container {
+        padding: 15px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+
+    /* Optional dark mode */
+    .dark-mode {
+      background: #121212;
+    }
+
+    .dark-mode .container {
+      background: #1e1e1e;
+      color: #fff;
+    }
+
+    .dark-mode input {
+      background: #333;
+      color: #fff;
+      border-color: #555;
     }
   </style>
 </head>
@@ -98,30 +143,20 @@
 
     <h2>Create Account</h2>
 
-    <div class="input-group">
-      <label for="name">Name</label>
-      <input type="text" id="name" placeholder="Enter your name" required>
-    </div>
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Enter your name" required>
 
-    <div class="input-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Enter your email" required>
-    </div>
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Enter your email" required>
 
-    <div class="input-group">
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" placeholder="Enter your phone number" required>
-    </div>
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" placeholder="Enter your phone number" required>
 
-    <div class="input-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Enter your password" required>
-    </div>
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter your password" required>
 
-    <div class="input-group">
-      <label for="confirmPassword">Confirm Password</label>
-      <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
-    </div>
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
 
     <p id="errorMsg"></p>
 
@@ -130,7 +165,6 @@
     <a href="index.html" class="small-btn">
       Already have an account? Sign In
     </a>
-
   </div>
 
   <script>
